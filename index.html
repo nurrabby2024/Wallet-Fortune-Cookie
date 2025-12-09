@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Wallet Fortune Cookie</title>
+
+    <meta property="fc:frame" content="vNext" />
+    <meta property="fc:frame:image" content="https://YOUR-DOMAIN.com/assets/hero.png" />
+    <meta property="fc:frame:button:1" content="Open Fortune Cookie" />
+    <meta property="fc:frame:button:1:action" content="link" />
+    <meta property="fc:frame:button:1:target" content="https://YOUR-DOMAIN.com/" />
+    
+    <meta name="fc:miniapp" content='{"version":"1","name":"Wallet Fortune","iconUrl":"https://YOUR-DOMAIN.com/assets/icon.png","splashImageUrl":"https://YOUR-DOMAIN.com/assets/splash.png"}' />
+
+    <meta property="og:title" content="Wallet Fortune Cookie" />
+    <meta property="og:description" content="Discover your on-chain fortune." />
+    <meta property="og:image" content="https://YOUR-DOMAIN.com/assets/hero.png" />
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./assets/icon.png" alt="Icon" class="app-icon" onerror="this.style.display='none'">
+            <h1>Wallet Fortune</h1>
+            <p>What does the blockchain hold for you?</p>
+        </header>
+
+        <div class="input-group">
+            <input type="text" id="walletAddress" placeholder="Enter Wallet (Optional)">
+        </div>
+
+        <button id="crackCookieBtn">Crack Open Cookie</button>
+
+        <div id="cookieContainer" class="cookie-container">
+            <img src="./assets/fortune-cookie.png" alt="Cookie" class="fortune-cookie-img">
+        </div>
+
+        <div id="fortuneCard" class="fortune-card hidden">
+            <div class="card-content">
+                <span class="emoji">✨</span>
+                <p id="fortuneText">Loading...</p>
+                <div class="glow"></div>
+            </div>
+            <button id="resetBtn" class="secondary-btn">Try Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
