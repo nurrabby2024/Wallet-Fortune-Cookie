@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Wallet Fortune Cookie</title>
 
-    <!-- Base / Frame metadata (for casts / embeds) -->
+    <!-- Frame metadata -->
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="https://wallet-fortune-cookie.vercel.app/assets/hero.png" />
     <meta property="fc:frame:button:1" content="Open Fortune Cookie" />
     <meta property="fc:frame:button:1:action" content="link" />
     <meta property="fc:frame:button:1:target" content="https://wallet-fortune-cookie.vercel.app/" />
 
-    <!-- Mini App embed metadata (required for Base preview image) -->
+    <!-- Mini App embed metadata (eta-i preview card er jonno) -->
     <meta
       name="fc:miniapp"
       content='{
@@ -21,17 +21,15 @@
         "button": {
           "title": "Open Wallet Fortune Cookie",
           "action": {
-            "type": "launch_frame",
-            "url": "https://wallet-fortune-cookie.vercel.app/",
+            "type": "launch_miniapp",
             "name": "Wallet Fortune Cookie",
-            "splashImageUrl": "https://wallet-fortune-cookie.vercel.app/assets/splash.png",
-            "splashBackgroundColor": "#ffffff"
+            "url": "https://wallet-fortune-cookie.vercel.app/"
           }
         }
       }'
     />
 
-    <!-- OpenGraph (fallback for rich cards) -->
+    <!-- OpenGraph fallback -->
     <meta property="og:title" content="Wallet Fortune Cookie" />
     <meta property="og:description" content="Discover your on-chain fortune." />
     <meta property="og:image" content="https://wallet-fortune-cookie.vercel.app/assets/hero.png" />
@@ -67,16 +65,6 @@
         </div>
     </div>
 
-    <!-- Mini App SDK + your app script -->
-    <script src="https://unpkg.com/@farcaster/miniapp-sdk/dist/sdk.umd.js"></script>
     <script src="script.js"></script>
-    <script>
-      // Mark app as ready when running inside Base / Mini App container
-      window.addEventListener("load", function () {
-        if (window.sdk && window.sdk.isInMiniApp && window.sdk.isInMiniApp()) {
-          window.sdk.actions.ready();
-        }
-      });
-    </script>
 </body>
 </html>
