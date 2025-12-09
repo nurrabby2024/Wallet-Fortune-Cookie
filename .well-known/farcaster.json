@@ -1,0 +1,25 @@
+{
+  "accountAssociation": {
+    "header": " ",
+    "payload": " ",
+    "signature": " "
+  },
+  "miniapp": {
+    "version": "1",
+    "name": "Wallet Fortune Cookie",
+    "homeUrl": "https://YOUR-DOMAIN.com/",
+    "iconUrl": "https://YOUR-DOMAIN.com/assets/icon.png",
+    "splashImageUrl": "https://YOUR-DOMAIN.com/assets/splash.png",
+    "splashBackgroundColor": "#ffffff",
+    "subtitle": "On-chain wisdom in one tap",
+    "description": "A tiny fortune cookie that reveals your on-chain destiny.",
+    "primaryCategory": "social",
+    "tags": ["fortune", "fun", "wallet"],
+    "heroImageUrl": "https://YOUR-DOMAIN.com/assets/hero.png",
+    "tagline": "Your wallet has a message.",
+    "ogTitle": "Wallet Fortune Cookie",
+    "ogDescription": "Discover your on-chain fortune.",
+    "ogImageUrl": "https://YOUR-DOMAIN.com/assets/hero.png",
+    "noindex": true
+  }
+}
