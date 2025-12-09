@@ -1,56 +1,52 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const crackBtn = document.getElementById('crackCookieBtn');
-    const resetBtn = document.getElementById('resetBtn');
-    const card = document.getElementById('fortuneCard');
-    const cookieBox = document.getElementById('cookieContainer');
-    const fortuneText = document.getElementById('fortuneText');
+const walletInput = document.getElementById("walletAddress");
+const crackBtn = document.getElementById("crackCookieBtn");
+const cookieContainer = document.getElementById("cookieContainer");
+const fortuneCard = document.getElementById("fortuneCard");
+const fortuneText = document.getElementById("fortuneText");
+const resetBtn = document.getElementById("resetBtn");
 
-    const fortunes = [
-        "Gas fees will be remarkably low for your next tx.",
-        "A forgotten airdrop awaits discovery.",
-        "HODL strong; volatility is temporary.",
-        "Your private keys remain safe.",
-        "A green candle is forming in your future.",
-        "WAGMI.",
-        "Verify, don't trust.",
-        "The blocks are confirming in your favor.",
-        "Smart money is following your lead.",
-        "Diamond hands forge diamond outcomes."
-    ];
+const fortunes = [
+  "A surprise airdrop may be closer than you think.",
+  "Your next transaction will bring unexpected joy.",
+  "A new on-chain friendship is about to appear.",
+  "Gas fees will be kind to you this week.",
+  "Your wallet hides a fortune of untapped potential.",
+  "An old NFT may find new value soon.",
+  "You will discover a gem before the crowd.",
+  "Patience in bear markets brings bull market blessings."
+];
 
-    crackBtn.addEventListener('click', () => {
-        crackBtn.disabled = true;
-        crackBtn.textContent = "Cracking...";
-        
-        // Simple animation logic
-        cookieBox.style.transform = "scale(1.1) rotate(5deg)";
-        cookieBox.style.opacity = "0";
-        
-        setTimeout(() => {
-            const msg = fortunes[Math.floor(Math.random() * fortunes.length)];
-            fortuneText.textContent = `"${msg}"`;
-            
-            cookieBox.classList.add('hidden');
-            card.classList.remove('hidden');
-            
-            // Trigger reflow
-            void card.offsetWidth;
-            card.classList.add('visible');
-            crackBtn.classList.add('hidden');
-        }, 500);
-    });
+function pickFortune(address) {
+  if (!address) {
+    // random if no wallet
+    return fortunes[Math.floor(Math.random() * fortunes.length)];
+  }
 
-    resetBtn.addEventListener('click', () => {
-        card.classList.remove('visible');
-        card.classList.add('hidden');
-        cookieBox.classList.remove('hidden');
-        crackBtn.classList.remove('hidden');
-        
-        setTimeout(() => {
-            cookieBox.style.transform = "scale(1) rotate(0deg)";
-            cookieBox.style.opacity = "1";
-            crackBtn.textContent = "Crack Open Cookie";
-            crackBtn.disabled = false;
-        }, 100);
-    });
+  // deterministic “random” based on wallet string
+  let hash = 0;
+  for (let i = 0; i < address.length; i++) {
+    hash = (hash * 31 + address.charCodeAt(i)) >>> 0;
+  }
+  const idx = hash % fortunes.length;
+  return fortunes[idx];
+}
+
+crackBtn.addEventListener("click", () => {
+  const address = walletInput.value.trim();
+  const f = pickFortune(address);
+
+  // simple animation
+  cookieContainer.classList.add("cracked");
+  crackBtn.disabled = true;
+
+  setTimeout(() => {
+    fortuneText.textContent = f;
+    fortuneCard.classList.remove("hidden");
+  }, 400);
+});
+
+resetBtn.addEventListener("click", () => {
+  crackBtn.disabled = false;
+  fortuneCard.classList.add("hidden");
+  cookieContainer.classList.remove("cracked");
 });
