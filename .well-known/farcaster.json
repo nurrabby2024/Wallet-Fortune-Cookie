@@ -9,6 +9,7 @@
     "name": "Wallet Fortune Cookie",
     "homeUrl": "https://wallet-fortune-cookie.vercel.app/",
     "iconUrl": "https://wallet-fortune-cookie.vercel.app/icon.png",
+    "imageUrl": "https://wallet-fortune-cookie.vercel.app/assets/hero.png",
     "splashImageUrl": "https://wallet-fortune-cookie.vercel.app/splash.png",
     "splashBackgroundColor": "#ffffff",
     "subtitle": "On-chain wisdom in one tap",
